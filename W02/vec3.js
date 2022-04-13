@@ -1,3 +1,9 @@
+class vec
+
+
+
+
+
 Vec3 = function( x, y, z )
 {
     this.x = x;
