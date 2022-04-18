@@ -1,0 +1,53 @@
+<html>
+    <head>
+	<title>W02: task3</title>
+    </head>
+    <body>
+      <p>三角形の面積 <span id="span2"></span></p>
+      x1
+      <input type="number" id="x1" value="10" max="2000" />
+      y1
+      <input type="number" id="y1" value="10" max="2000" />
+      z1
+      <input type="number" id="z1" value="10" max="2000" />
+      <br>
+      x2
+      <input type="number" id="x2" value="15" max="2000" />
+      y2
+      <input type="number" id="y2" value="5" max="2000" />
+      z2
+      <input type="number" id="z2" value="3" max="2000" />
+      <br>
+      x3
+      <input type="number" id="x3" value="21" max="2000" />
+      y3
+      <input type="number" id="y3" value="12" max="2000" />
+      z3
+      <input type="number" id="z3" value="8" max="2000" />
+      <br>
+      <script src="vec32.js"></script>
+      <input type="button" value="面積計算" onclick="clickBtn3()" />
+      <script>
+        function clickBtn3() {
+          var v1 = new Vec3( x1.value, y1.value, z1.value );
+          var v2 = new Vec3( x2.value, y2.value, z2.value );
+          var v3 = new Vec3( x3.value, y3.value, z3.value );
+          
+          v2=v2.sub(v1);
+          v3=v3.sub(v1);
+          
+          var abv2=v2.length();
+          var abv3=v3.length();
+          
+          var inpro=v2.x*v3.x+v2.y*v3.y+v2.z*v3.z;
+          var cos=inpro / (abv2 * abv3);
+          var sin=Math.sqrt(1-cos*cos);
+          var ans=abv2*abv3*sin/2;
+          
+          document.getElementById("span2").textContent = ans;
+          
+        }
+
+      </script>
+    </body>
+</html>
