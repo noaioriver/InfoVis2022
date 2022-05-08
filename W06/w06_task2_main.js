@@ -60,15 +60,15 @@ class ScatterPlot {
             .range([0,self.mrg_inner_height]);
 
         self.xaxis = d3.axisBottom( self.xscale )
-            .ticks(10)//.tickFormat((d)=>{return d*10+1+'Œ'});
-            .tickFormat(d => d === 0  || d===13? "" : d+"Œ")
+            .ticks(10)//.tickFormat((d)=>{return d*10+1+'æœˆ'});
+            .tickFormat(d => d === 0  || d===13? "" : d+"æœˆ")
 
         self.xaxis_group = self.chart.append('g')
             .attr('transform', `translate(0, ${self.inner_height})`);
 
         self.yaxis = d3.axisLeft(self.yscale)
             .ticks(10)
-            .tickFormat(d=> d===30?d+"":d)
+            .tickFormat(d=> d===30?d+"â„ƒ":d)
             
 
         self.yaxis_group=self.chart.append('g')
@@ -100,7 +100,7 @@ class ScatterPlot {
     render() {
         let self = this;
 
-        self.title.text('_ŒËs‚Ì•½‹Ï‹C‰·(2021”N)')
+        self.title.text('ç¥æˆ¸å¸‚ã®å¹³å‡æ°—æ¸©(2021å¹´)')
             .attr('x',(self.inner_width - self.config.margin.left)/2-60)
             .attr('y',self.config.margin.top/2 )
             .attr('font-size',20)
@@ -123,7 +123,7 @@ class ScatterPlot {
             .attr('y',self.config.margin.bottom-10)
             .attr('font-size',15)
             .attr('font-weight','bold')
-            .text('Œ')
+            .text('æœˆ')
 
         
         
@@ -137,6 +137,6 @@ class ScatterPlot {
             .attr('font-size',15)
             .attr('font-weight','bold')
             .attr('transform','rotate(-90)')
-            .text("•½‹Ï‹C‰·")
+            .text("å¹³å‡æ°—æ¸©")
     }
 }
