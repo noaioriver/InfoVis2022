@@ -58,15 +58,15 @@ class ScatterPlot {
             .range([0,self.mrg_inner_height]);
 
         self.xaxis = d3.axisBottom( self.xscale )
-            .ticks(10)//.tickFormat((d)=>{return d*10+1+'ŒŽ'});
-            .tickFormat(d => d === 0  || d===13? "" : d+"ŒŽ")
+            .ticks(10)//.tickFormat((d)=>{return d*10+1+'æœˆ'});
+            .tickFormat(d => d === 0  || d===13? "" : d+"æœˆ")
 
         self.xaxis_group = self.chart.append('g')
             .attr('transform', `translate(0, ${self.inner_height})`);
 
         self.yaxis = d3.axisLeft(self.yscale)
             .ticks(10)
-            .tickFormat(d=> d===30?d+"Ž":d)
+            .tickFormat(d=> d===30?d+"â„ƒ":d)
             
 
         self.yaxis_group=self.chart.append('g')
