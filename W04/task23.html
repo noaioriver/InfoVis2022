@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>W04: task2</title>
+    </head>
+    <body>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script>
+	 var svg = d3.select("body").append("svg");
+     var padding = 10;
+     var height = 20;
+     var length =70;
+	 d3.csv("https://www8.cao.go.jp/shoushi/shoushika/whitepaper/measures/w-2005/17webhonpen/csv/h0101010.csv")
+       .mimeType("text/csv;charset=shift_jis")
+       .row(function(d){
+           return {label:d["年次"],child:d["出生数"]}
+       })
+       .get(function(data){
+         svg.selectAll("text")
+        .data(data)
+            .enter()
+            .append("text")
+            .attr("x",padding)
+            .attr("y",function(d,i){return 15+padding + i * ( height + padding );})
+            .attr("font-family","selif")
+            .text(function(d){return d.label;})
+            
+	     svg.selectAll("rect")
+		.data(data)
+	        .enter()
+	        .append("rect")
+	        .attr("x", length)
+	        .attr("y", function(d,i){return padding + i * ( height + padding ); })
+	        .attr("width", function(d){ return d.child; })
+            .attr("height",height)
+	 } )
+     ;
+	</script>
+    </body>
+</html>
