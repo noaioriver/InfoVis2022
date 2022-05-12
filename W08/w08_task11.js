@@ -1,4 +1,4 @@
-d3.csv("https://noaioriver2.github.io/InfoVis2022/W04/syussei.csv")
+d3.csv("https://noaioriver.github.io/InfoVis2022/W04/syussei.csv")
     .then( data => {
         data.forEach( d => { d.label = +d.year; d.value = +d.numofbirth; d.color=+d.color; });
 
