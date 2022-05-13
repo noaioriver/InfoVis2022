@@ -63,14 +63,15 @@ class LineChart {
 
         self.yaxis = d3.axisLeft( self.yscale )
             .tickSizeOuter(0)
-            .tickSize(-self.inner_width)
+            //.tickSize(-self.inner_width)
             .tickFormat(d=> d===30?d+"℃":d);
             
 
         self.xaxis_group = self.chart.append('g')
             .attr('transform', `translate(0, ${self.inner_height})`);
 
-        self.yaxis_group = self.chart.append('g');
+        self.yaxis_group = self.chart.append('g')
+            .attr("class","graph__axis graph__axis--y");
 
         const title_space = 20;
         self.svg.append('text')
@@ -158,33 +159,24 @@ class LineChart {
                 .attr("font-size", "10px")
                 .attr("fill", "gray");
 
-            /*var rangeX = d3.range(0, self.inner_width, 60);
-            var rangeY = d3.range(self.config.margin.bottom, self.inner_height, 30);
-            // 縦方向のグリッドを生成
-            self.chart.selectAll("line.y")
-                .data(rangeY)
-                .enter()
-                .append("line")
-                .attr("x1", 0).attr("y1", function(d,i){return d; })
-                .attr("x2", self.inner_width).attr("y2", function(d,i){return d ;})
-            // 横方向のグリッドを生成
-            self.chart.selectAll("line.x")
-                .data(rangeX)
-                .enter()
-                .append("line")
-                .attr("x1", function(d,i){return d;}).attr("y1", 0)
-                .attr("x2", function(d,i){return d;}).attr("y2", self.inner_height);
-            // グリッドを描画
-            self.chart.selectAll("line")
-                .attr("stroke", "silver")
-                .attr("shape-rendering", "crispEdges");*/
+            
 
+      
+      
             
         self.xaxis_group
             .call( self.xaxis );
 
         self.yaxis_group
             .call( self.yaxis );
+
+        self.chart.selectAll(".graph__axis--y .tick:not(:first-of-type) line")
+            .attr("x1", 0)
+            .attr("y1", 0)
+            .attr("x2", self.inner_width)
+            .attr("y2", 0)
+            .attr("stroke", "silver")
+            .attr("stroke-dasharray", "2,2");
     }
 }
 

@@ -1,6 +1,6 @@
 d3.csv("https://noaioriver.github.io/InfoVis2022/W04/syussei.csv")
     .then( data => {
-        data.forEach( d => { d.label = +d.year; d.value = +d.numofbirth; d.color=+d.color; });
+        data.forEach( d => { d.label = +d.year; d.value = +d.numofbirth; d.color=d.color; });
 
         var config = {
             parent: '#drawing_region',
@@ -118,6 +118,7 @@ class BarChart {
             .attr("y", d => self.yscale( d.label ) )
             .attr("width", d => self.xscale(d.value))
             .attr("height", self.yscale.bandwidth())
+            .style("fill",d=>d.color)
 
         self.chart.selectAll("text")
             .data(self.data)
