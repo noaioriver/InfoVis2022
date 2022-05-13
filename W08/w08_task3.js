@@ -2,13 +2,6 @@ d3.csv("https://noaioriver.github.io/InfoVis2022/W08/w08_task3.csv")
     .then( data => {
         data.forEach( d => { d.label = d.maker; d.value = +d.value; d.color=d.color; });
 
-        /*var data = [
-            {label:'Apple', value:100},
-            {label:'Banana', value:200},
-            {label:'Cookie', value:50},
-            {label:'Doughnut', value:120},
-            {label:'Egg', value:80}
-        ];*/
 
         var config = {
             parent: '#drawing_region',
