@@ -132,22 +132,6 @@ class LineChart {
             .attr("cy", d => self.yscale( d.y ) )
             .attr("r", d => d.r )
 
-           /* var data = [
-                {x:0, y:100},
-                {x:40, y:5},
-                {x:120, y:80},
-                {x:150, y:30},
-                {x:200, y:50}
-            ];
-            
-            const line = d3.line()
-                  .x( d => d.x )
-                  .y( d => d.y );
-            
-            self.svg.append('path')
-                .attr('d', line(data))
-                .attr('stroke', 'black')
-                .attr('fill', 'none');*/
 
             self.chart.selectAll("text")
                 .data(self.data)

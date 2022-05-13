@@ -66,7 +66,8 @@ class BarChart {
             
 
         self.xaxis_group = self.chart.append('g')
-            .attr('transform', `translate(0, ${self.inner_height})`);
+            .attr('transform', `translate(0, ${self.inner_height})`)
+            .attr("class","graph__axis graph__axis--x");
 
         self.yaxis_group = self.chart.append('g');
 
@@ -100,7 +101,7 @@ class BarChart {
     update() {
         let self = this;
 
-        self.xscale.domain( [0, d3.max(self.data, d => d.value)] );
+        self.xscale.domain( [0, 300000] );
 
         self.yscale.domain( self.data.map(d => d.label));
 
@@ -136,6 +137,14 @@ class BarChart {
 
         self.yaxis_group
             .call( self.yaxis );
+
+        self.chart.selectAll(".graph__axis--x .tick:not(:first-of-type) line")
+            .attr("x1", 0)
+            .attr("y1", -self.inner_height)
+            .attr("x2", 0)
+            .attr("y2", 0)
+            .attr("stroke", "silver")
+            .attr("stroke-dasharray", "2,2");
     }
 }
 
