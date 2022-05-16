@@ -9,7 +9,7 @@ d3.csv("https://noaioriver.github.io/InfoVis2022/W08/w08_task3.csv")
             height: 256*2,
             margin: {top:30, right:20, bottom:50, left:70},
             title: '日本におけるスマホメーカー別シェア(2019年)',
-            radius:80,
+            radius:60,
         };
 
 
