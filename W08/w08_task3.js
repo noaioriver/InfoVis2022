@@ -9,7 +9,7 @@ d3.csv("https://noaioriver.github.io/InfoVis2022/W08/w08_task3.csv")
             height: 256*2,
             margin: {top:30, right:20, bottom:50, left:70},
             title: '日本におけるスマホメーカー別シェア(2019年)',
-            radius:5,
+            radius:80,
         };
 
 
@@ -55,7 +55,7 @@ class PieChart {
         self.radius=Math.min(self.inner_width,self.inner_height)/2
 
         self.arc=d3.arc()
-            .innerRadius(self.radius-150)
+            .innerRadius(self.radius)
             .outerRadius(self.radius)
 
         /*self.text_arc = d3.arc().outerRadius(self.radius).innerRadius(self.radius)*/
@@ -77,7 +77,9 @@ class PieChart {
 
     update() {
         let self = this;
-
+        self.arc.innerRadius(self.config.radius);
+        self.chart.selectAll("path").remove();
+        self.chart.selectAll("text").remove();
         self.render();
     }
 
@@ -102,6 +104,8 @@ class PieChart {
             .attr("fill", d => d.data.label=="SHARP"?  "gray":"white")
             .attr("transform", d => `translate(${self.arc.centroid(d)})`)
             //.attr("dy", "50px");
+
+        
 
         self.chart.selectAll("q")
             .data(self.pie(self.data))
