@@ -55,7 +55,7 @@ class BarChart {
             ylabel: config.ylabel || ''
         }
         this.data = data;
-        //this.ken_array = ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県']
+        this.ken_array = ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県']
         
         this.init();
         
@@ -204,9 +204,9 @@ class BarChart {
                 .data(self.data)
                 .enter()
                 .append("rect")
-                .transition().duration(500)
                 .attr("x", 0)
                 .attr("y", d => self.yscale( d.label ) )
+                .transition().duration(500)
                 .attr("width", d => self.xscale(d.value))
                 .attr("height", self.yscale.bandwidth())
                 .style("fill",
@@ -223,6 +223,7 @@ class BarChart {
                     .transition().duration(500)
                     .text(d=>d.value)
                     .attr("text-anchor", "middle")
+                    //.transition().duration(500)
                     .attr("x",  d => self.xscale(d.value)-15)
                     .attr("y",d => self.yscale( d.label )+10)
                     .attr("font-size", "10px")
@@ -235,11 +236,11 @@ class BarChart {
                 .data(self.data)
                 .enter()
                 .append("rect")
-                .transition().duration(500)
                 .attr("x", 0)
                 .attr("y", d => self.yscale( d.label ) )
                 .attr("height", self.yscale.bandwidth())
-                            .attr("width", d => self.xscale(d.fiveyears+d.tenyears))
+                .transition().duration(500)
+                .attr("width", d => self.xscale(d.fiveyears+d.tenyears))
                             .style("fill",function(d){
                                 if(d.fiveyears+d.tenyears==d3.max( self.data, d => d.fiveyears+d.tenyears ))
                                 {return "red";}
@@ -265,10 +266,10 @@ class BarChart {
                 .data(self.data)
                 .enter()
                 .append("rect")
-                .transition().duration(500)
                 .attr("x", 0)
                 .attr("y", d => self.yscale( d.label ) )
                 .attr("height", self.yscale.bandwidth())
+                .transition().duration(500)
                 .attr("width", d => self.xscale(d.ofyears+d.tzyears))
                 .style("fill",function(d){
                     if(d.ofyears+d.tzyears==d3.max( self.data, d => d.ofyears+d.tzyears ))
@@ -295,10 +296,10 @@ class BarChart {
                     .data(self.data)
                     .enter()
                     .append("rect")
-                    .transition().duration(500)
                     .attr("x", 0)
                     .attr("y", d => self.yscale( d.label ) )
                     .attr("height", self.yscale.bandwidth())
+                    .transition().duration(500)
                     .attr("width", d => self.xscale(d.tfyears+d.thzyears))
                     .style("fill",function(d){
                         if(d.tfyears+d.thzyears==d3.max( self.data, d => d.tfyears+d.thzyears ))
@@ -324,10 +325,10 @@ class BarChart {
                     .data(self.data)
                     .enter()
                     .append("rect")
-                    .transition().duration(500)
                     .attr("x", 0)
                     .attr("y", d => self.yscale( d.label ) )
                     .attr("height", self.yscale.bandwidth())
+                    .transition().duration(500)
                     .attr("width", d => self.xscale(d.thfyears+d.fzyears))
                     .style("fill",function(d){
                         if(d.thfyears+d.fzyears==d3.max( self.data, d => d.thfyears+d.fzyears ))
@@ -354,10 +355,10 @@ class BarChart {
                             .data(self.data)
                             .enter()
                             .append("rect")
-                            .transition().duration(500)
                             .attr("x", 0)
                             .attr("y", d => self.yscale( d.label ) )
                             .attr("height", self.yscale.bandwidth())
+                            .transition().duration(500)
                             .attr("width", d => self.xscale(d.ffyears+d.fizyears))
                             .style("fill",function(d){
                                 if(d.ffyears+d.fizyears==d3.max( self.data, d => d.ffyears+d.fizyears ))
@@ -384,10 +385,10 @@ class BarChart {
                                         .data(self.data)
                                         .enter()
                                         .append("rect")
-                                        .transition().duration(500)
                                         .attr("x", 0)
                                         .attr("y", d => self.yscale( d.label ) )
                                         .attr("height", self.yscale.bandwidth())
+                                        .transition().duration(500)
                                         .attr("width", d => self.xscale(d.fifyears+d.szyears))
                                         .style("fill",function(d){
                                             if(d.fifyears+d.szyears==d3.max( self.data, d => d.fifyears+d.szyears ))
@@ -413,10 +414,10 @@ class BarChart {
                             .data(self.data)
                             .enter()
                             .append("rect")
-                            .transition().duration(500)
                             .attr("x", 0)
                             .attr("y", d => self.yscale( d.label ) )
                             .attr("height", self.yscale.bandwidth())
+                            .transition().duration(500)
                             .attr("width", d => self.xscale(d.sfyears+d.sezyears))
                             .style("fill",function(d){
                                 if(d.sfyears+d.sezyears==d3.max( self.data, d => d.sfyears+d.sezyears ))
@@ -444,10 +445,10 @@ class BarChart {
                                     .data(self.data)
                                     .enter()
                                     .append("rect")
-                                    .transition().duration(500)
                                     .attr("x", 0)
                                     .attr("y", d => self.yscale( d.label ) )
                                     .attr("height", self.yscale.bandwidth())
+                                    .transition().duration(500)
                                     .attr("width", d => self.xscale(d.sefyears+d.ezyears))
                                     .style("fill",function(d){
                                         if(d.sefyears+d.ezyears==d3.max( self.data, d => d.sefyears+d.ezyears ))
@@ -475,10 +476,10 @@ class BarChart {
                                             .data(self.data)
                                             .enter()
                                             .append("rect")
-                                            .transition().duration(500)
                                             .attr("x", 0)
                                             .attr("y", d => self.yscale( d.label ) )
                                             .attr("height", self.yscale.bandwidth())
+                                            .transition().duration(500)
                                             .attr("width", d => self.xscale(d.efyears+d.moreef))
                                             .style("fill",function(d){
                                                 if(d.efyears+d.moreef==d3.max( self.data, d => d.efyears+d.moreef ))
@@ -603,10 +604,10 @@ class BarChart {
             self.update();
         })
 
-        d3.select('#name-sort')
+        d3.select('#original')
         .on('click',d =>{
-            //self.data.sort((x, y) => self.ken_array.indexOf(x.label) - self.ken_array.indexOf(y.label))
-            self.data.sort((x,y)=>y.index-x.index)
+            self.data.sort((x, y) => self.ken_array.indexOf(x.label) - self.ken_array.indexOf(y.label))
+            //self.data.sort((x,y)=>y.index-x.index)
             self.update();
         })
 
