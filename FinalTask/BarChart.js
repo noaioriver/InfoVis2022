@@ -272,6 +272,7 @@ class BarChart {
 
         
     }
+    //機能追加用
 
     addList(name, func) {
         let self = this;

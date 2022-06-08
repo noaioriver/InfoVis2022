@@ -25,6 +25,7 @@ async function main(){
         console.log( error );
     });
 
+    //カラースケール
     thisdata.forEach((d, i) => {
         d.color = d3.interpolateBlues(d.woman / d3.max(thisdata, d => d.woman))
         wcolor[d.label] = d.color;
@@ -91,6 +92,7 @@ async function main(){
       let preselectedc="";
       let path=geoChart.path;
 
+      //機能追加
       bar_chart1.addList('#value-sort', (e, d) => {
 
         switch(bar_chart1.data_type){
@@ -323,7 +325,7 @@ async function main(){
 
 
         
-    
+    //初期化
         thisdata.forEach((d) => {
           
             ccolor[d.label] = "white";});
