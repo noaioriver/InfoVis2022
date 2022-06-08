@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+      <style>
+      body {
+          font-family: system-ui;
+      }
+      .container {
+          display: flex;
+      }
+      .bar.active {
+          stroke: #000;
+      }
+      #tooltip {
+         position: absolute;
+         opacity: 0;
+         background: #fff;
+         border: 1px solid #ddd;
+         font-size: 12px;
+         font-weight: 600;
+         padding: 2px 8px;
+     }
+     .tooltip-label {
+         font-weight: 500;
+         font-size: 11px;
+         color: #888;
+     }
+
+     .chart {
+            display: flex;
+
+            
+            flex-wrap: wrap;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+     .chart__item {
+            flex-basis: 25%;
+
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+
+      </style>
+        <title>Final Task</title>
+    </head>
+    <body>
+        <h1>地方議会の女性割合比率とNHK受信料未払い率に関係があるか見てみよう</h1>
+    <div id="tooltip"></div>
+    <div id="detail"></div>
+    <div class="chart" >
+        
+        <input type="radio" name="type" id="woman" >地方議会の女性議員比率
+        <input type="radio" name="type" id="nhk" >NHK受信料未払い率
+        <input type="radio" name="type" id="both" >両方表示
+    </div>
+    <div class="chart">
+        <div class="chart__item">
+            <svg id="geochart_region"></svg>
+            <br>
+            <small style="float:right">
+                地図から都道府県を選択すると右の図も対応して色が変わります
+            </small>
+        </div>
+        <div class="chart__item">
+            <svg id="scatter_region"></svg>
+        </div>
+        <div class="chart__item">
+            
+           
+            <svg id="barchart_region1"></svg>
+            <button type="button" id="value-sort">順位(昇順)</button>
+            <button type="button" id="value-sort2">順位(降順)</button>
+            <button type="button" id="original">都道府県順(オリジナル)</button>
+        </div>
+        <div>
+            
+            <svg id="barchart_region2"></svg>
+        </div>
+    </div>
+    
+  	<script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="GeoChart.js" charset="utf-8"></script>
+    <script src="BarChart.js" charset="utf-8"></script>
+    <script src="ScatterPlot.js" charset="utf-8"></script>
+   	<script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
+
